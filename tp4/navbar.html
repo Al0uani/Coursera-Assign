@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(86, 175, 175);
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+        font-weight: 700;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.2s ease-in-out;
+    }
+
+    a:hover {
+        background-color: #3d828b;
+        transform: scale(1.05);
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href="index.php">MAIN</a></li>
+        <li><a href="save.php">SAVE</a></li>
+        <li><a href="display.php">DISPLAY</a></li>
+        <li><a href="search.php">SEARCH</a></li>
+    </ul>
+</body>
+</html>

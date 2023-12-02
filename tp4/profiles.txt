@@ -1,0 +1,5 @@
+James,Tyrone,male,+212617795214,employed
+Youssef,Alouani,male,0617795214,student
+Joseph,Alou,male,0617795214,student
+Yassir,Alouani,male,+212698741235,other
+kiko,Alpha,female,0615253696,unemployed
