@@ -5,37 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Profiles</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
 
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            
-        }
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;text-align:center;
-        }
+    th, td {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
 
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
 
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-    </style>
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
 </head>
 <body>
     <?php include('navbar.html') ?>
@@ -58,23 +57,42 @@
     </table>
     <table>
         <?php
-         echo "<tr><th>JOBS</th><th>TOTAL</th><th>PERCENTAGE</th></tr>";
-         $data = file_get_contents("profiles.txt");
-         $lines = explode("\n", $data);
-         $listjob=array();$size=0;
-         foreach($lines as $line){
-            if(!empty($line)){
-            $size+=1;
-            $seperline = explode(",", $line);
-            array_push($listjob,$seperline[4]);
-        }}
-        $listjob=array_count_values($listjob);
-        foreach($listjob as $key=>$value){
-            $temp=round(($value/$size)*100,2);
-            echo "<tr><td>$key</td><td>$value</td><td>$temp</td></tr>";
-
-        }
-        
+            echo "<tr><th>JOBS</th><th>TOTAL</th><th>PERCENTAGE</th></tr>";
+            $data = file_get_contents("profiles.txt");
+            $lines = explode("\n", $data);
+            $listjob=array();$size=0;
+            foreach($lines as $line){
+                if(!empty($line)){
+                    $size+=1;
+                    $seperline = explode(",", $line);
+                    array_push($listjob,$seperline[4]);
+                }
+            }
+            $listjob=array_count_values($listjob);
+            foreach($listjob as $key=>$value){
+                $temp=round(($value/$size)*100,2);
+                echo "<tr><td>$key</td><td>$value</td><td>$temp</td></tr>";
+            }
+        ?>
+    </table>
+    <table id="lasttable">
+        <?php
+            echo "<tr><th>GENDER</th><th>TOTAL</th><th>PERCENTAGE</th></tr>";
+            $data=file_get_contents("profiles.txt");
+            $lines = explode("\n", $data);
+            $listjob=array();$size=0;
+            foreach($lines as $line){
+                if(!empty($line)){
+                    $size+=1;
+                    $seperline = explode(",", $line);
+                    array_push($listjob,$seperline[2]);
+                }
+            }
+            $listjob=array_count_values($listjob);
+            foreach($listjob as $key=>$value){
+                $temp=round(($value/$size)*100,2);
+                echo "<tr><td>---.$key--</td><td>$value</td><td>$temp</td></tr>";
+            }
         ?>
     </table>
 </body>
