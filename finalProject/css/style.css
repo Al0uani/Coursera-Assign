@@ -1,0 +1,95 @@
+/* Default Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 10px;
+  }
+  
+  figure {
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures images don't overflow the figure */
+    transition: border-radius 0.3s ease; /* Smooth transition for border-radius */
+  }
+  
+  figure img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Mobile View */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Tablet View */
+  @media only screen and (min-width: 772px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    figure {
+      border-radius: 50%;
+    }
+  
+    figure:last-child {
+      grid-column: span 2;
+    }
+  }
+  
+  /* Large Screen View (992 pixels) */
+  @media only screen and (min-width: 992px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    figure {
+      border-radius: 0; /* Remove border-radius for square images */
+    }
+  
+    figure:nth-child(3n) {
+      grid-column: span 3; /* Take up the entire column for every third image */
+    }
+  }
+  
+  /* Prefers-Reduced-Motion Media Query */
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      scroll-behavior: auto;
+    }
+  }
+  
+  /* Dark Color Scheme Media Query */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+  
+    .grid figure {
+      background-color: #333; /* Use the same background color as the body */
+      color: #eee; /* Lighter font color for figures */
+      border-color: #000;
+    }
+  }
+  
